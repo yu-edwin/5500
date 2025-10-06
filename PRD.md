@@ -20,26 +20,32 @@ The main idea is that when the user is online shopping, despite seeing how the c
 
 ## Target Users
 
-### User Personas
-
 After conducting the interviews, I decided to split my personas into 4 categories distinguished by how much emphasis they put into fashion and how much of a budget they are willing to spend. The first aspect is very self explanatory as an individual with high fashion sense would likely value fashion much more than a person with low fashion sense in which they would likely not have put too much thought in what they wear as long as it’s comfortable and works. The other category of budget can be a bit trickier. Some people prefer luxurious products such as Gucci, Louis Vuitton, etc and won’t mind spending extra for designer brand names. However, most people would likely not be willing to afford such luxurious items, but still recognize brands such as American Eagle, Hollister, Uniqlo, and etc, which places them in the neutral point. Individuals who value spending less for clothes are categorized in the low budget criteria . 
 I decided on these two aspects to divide up my persona map into four quadrants since each person in their respective quadrants likely live different lifestyles since they have different values/mindset that influences the clothes that they choose. These people can be categorized as such: 
 
+### User Personas
+
 High Fashion/High Budget:
 These people are likely more carefree and outgoing people who believe that the clothes/fashion of people help define who they are. They would be the people who would keep up with the latest fashion trends and know when new items are being released.
+![Preview](assets/PRD/PersonaHH.png)
 
 High Fashion/Low Budget:
 Individuals who likely enjoy finding a creative/original outfit that doesn’t necessarily include items with expensive logos/names. They might favor small local clothing shops and shop in outlets for potentially cheaper prices.
+![Preview](assets/PRD/PersonaHL.png)
 
 Low Fashion/High Budget
 These people don’t necessarily care about fashion trends or styles but rather feel more confident in the value of a brand association/more luxurious clothes. 
+![Preview](assets/PRD/PersonaLH.png)
 
 Low Fashion/Low Budget:
 These people don’t care about their fashion choices, but wear clothes that are more comfortable and sustainable for their everyday life. They could be curious about new fashion trends and might want to change their wardrobe, but are uncertain on how to achieve that.
+![Preview](assets/PRD/PersonaLL.png)
 
 ## Tasks
 
 ### Journy Mapping
+
+![Preview](assets/PRD/JourneyMapping.png)
 
 ### User Stories
 
