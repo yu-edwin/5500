@@ -61,6 +61,23 @@ Will support all genders identities
 Age appropriate regulation
 
 
+## User Dimensions Analysis
+
+We considered multiple dimensions to categorize our target users:
+
+1. **Fashion Sense (High/Low)** - How much users value fashion and trends
+2. **Budget (High/Low)** - How much users are willing to spend on clothing
+3. Tech Savviness (High/Low) - User's comfort with technology
+4. Shopping Frequency (Regular/Occasional) - How often users shop for clothes
+
+**Prioritization Rationale:**
+We selected Fashion Sense and Budget as our two primary dimensions because:
+- These two factors most directly influence clothing purchase decisions
+- Our customer interviews revealed these as the strongest differentiators
+- Tech savviness showed less variation among college students (our target)
+- Shopping frequency correlated closely with fashion sense
+
+
 
 ## Target Users
 
