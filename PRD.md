@@ -136,4 +136,38 @@ These people don’t care about their fashion choices, but wear clothes that are
 ![Preview](assets/PRD/StoryboardLH.png)
 #### Low Fashion/Low Budget
 ![Preview](assets/PRD/StoryboardLL.png)
+
+
 ## Technologies
+
+### Platform
+- **iOS Native Mobile App** (iPhone, iOS 14+)
+- Camera-based AR try-on experience
+
+### Core Technology Stack
+
+**Frontend:**
+- Swift/SwiftUI - iOS development
+- ARKit - Augmented reality
+- AVFoundation - Camera integration
+- Core ML - On-device machine learning
+
+**Backend:**
+- JavaScript (Node.js + Express) OR Python (Flask) - API server
+- MongoDB - Database
+- AWS S3 - Image storage
+- JWT - Authentication
+
+**AI/ML:**
+- Hugging Face SAM Model (`facebook/sam-vit-base`) - Image segmentation
+  - URL: https://huggingface.co/facebook/sam-vit-base
+- Custom ML model - Fit prediction (architecture TBD)
+
+**Integrations:**
+- E-commerce APIs for product data (specific retailers TBD)
+- Web scraping for stores without APIs
+
+### Development & Security
+- Git/GitHub - Version control
+- Encrypted data storage and transmission
+- User privacy protection
