@@ -59,29 +59,30 @@ Outfit View
 1. As a user who wants to understand brand clothing size, I want to visualize the clothing on my visual person so I can forsee how I would appear before buying the items.
 2. As a student getting into fashion, I want to be able to experiment on different types of clothing so I can visualize the outfits and generate new ideas in the future.
 3. As a student unfamiliar with the current trends, I want to familiarize myself with different brands and outfits so I can be confident in my outwear and generate good impressions from others based on my outfit.
-4. Able to get clothing items from any given website.
-5. Able to display the AR clothing onto the user's camera view.
-6. Should be able to track the user's movement and adjust the AR clothing accordingly.
+4. Get clothing items from any given website.
+5. Convert the clothes from the website into AR clothes for the user.
+6. Display and fit the AR clothing onto the user's body in the camera view.
+7. Should be able to track the user's movement and adjust the AR clothing accordingly.
 
 ### Non-functional
 
 1. Easy access though my mobile application anytime and anywhere.
-2. Fast generation of images and response time
-3. Privacy of information
-4. Capable of storing large amounts of items in a wardrobe.
-5. Core functionality accessible whilst offline.
+2. Fast generation of images and response time.
+3. Capable of storing large amounts of items in a wardrobe.
+4. Core functionality accessible whilst offline.
 
 ### Ethical
 
-1. Never store images/measurements without consent from the user
-2. Will collect only the necessary data required for app to function
-3. Users should be able to delete their images/data anytime
-4. Bias free (No one should have restricted access based on ethnicity/demographics)
-5. No images generated should be harmful for the user
-6. Encryption will store sensitive data (username/password) for users
-7. Avoid unrealistic images that may result in a negative reaction from user (body morphing)
-8. Will not include a social media aspect that may induce social anxiety or body shaming
-9. Will support all genders identities, age, race, and other demographics.
+1. Privacy of information
+2. Never store images/measurements without consent from the user
+3. Will collect only the necessary data required for app to function
+4. Users should be able to delete their images/data anytime
+5. Bias free (No one should have restricted access based on ethnicity/demographics)
+6. No images generated should be harmful for the user
+7. Encryption will store sensitive data (username/password) for users
+8.  Avoid unrealistic images that may result in a negative reaction from user (body morphing)
+9.  Will not include a social media aspect that may induce social anxiety or body shaming
+10. Will support all genders identities, age, race, and other demographics.
 
 ## User Dimensions Analysis
 
@@ -110,25 +111,29 @@ I decided on these two aspects to divide up my persona map into four quadrants s
 
 High Fashion/High Budget:
 These people are likely more carefree and outgoing people who believe that the clothes/fashion of people help define who they are. They would be the people who would keep up with the latest fashion trends and know when new items are being released.
-![Preview](assets/PRD/PersonaHH.png)
+
+![](assets/PRD/PersonaHH.png)
 
 High Fashion/Low Budget:
 Individuals who likely enjoy finding a creative/original outfit that doesn’t necessarily include items with expensive logos/names. They might favor small local clothing shops and shop in outlets for potentially cheaper prices.
-![Preview](assets/PRD/PersonaHL.png)
+
+![](assets/PRD/PersonaHL.png)
 
 Low Fashion/High Budget
 These people don’t necessarily care about fashion trends or styles but rather feel more confident in the value of a brand association/more luxurious clothes. 
-![Preview](assets/PRD/PersonaLH.png)
+
+![](assets/PRD/PersonaLH.png)
 
 Low Fashion/Low Budget:
 These people don’t care about their fashion choices, but wear clothes that are more comfortable and sustainable for their everyday life. They could be curious about new fashion trends and might want to change their wardrobe, but are uncertain on how to achieve that.
-![Preview](assets/PRD/PersonaLL.png)
+
+![](assets/PRD/PersonaLL.png)
 
 ## Tasks
 
 ### Journy Mapping
 
-![Preview](assets/PRD/JourneyMapping.png)
+![](assets/PRD/JourneyMapping.png)
 
 ### User Stories
 
@@ -151,13 +156,20 @@ These people don’t care about their fashion choices, but wear clothes that are
 
 ### Storyboards
 #### High Fashion/High Budget
-![Preview](assets/PRD/StoryboardHH.png)
+
+![](assets/PRD/StoryboardHH.png)
+
 #### High Fashion/Low Budget
-![Preview](assets/PRD/StoryboardHL.png)
+
+![](assets/PRD/StoryboardHL.png)
+
 #### Low Fashion/High Budget
-![Preview](assets/PRD/StoryboardLH.png)
+
+![](assets/PRD/StoryboardLH.png)
+
 #### Low Fashion/Low Budget
-![Preview](assets/PRD/StoryboardLL.png)
+
+![](assets/PRD/StoryboardLL.png)
 
 
 ## Technologies
