@@ -8,15 +8,59 @@ The main idea is that when the user is online shopping, despite seeing how the c
 
 ## Main Problem
 
+Our audience faces multiple problems such as:
+
+Fit uncertainty (size) - Currently product images places clothes on models/avatars and not the individual buying the clothes. This gives the customer a rough estimate on how the clothes would look, but fails to demonstrate how an outfit would look on the customer for a more accurate display.
+
+Wasting time/money - Many customers are unsatisfied in their clothing item purchase due to many factors (size/style/fashion) and waste time by returning or tailoring. Our application aims to help our audience by reducing time/money.
+
+Outfit/Fashion - Many brands now currently have multiple styles available and different types of clothes that companies have decided as the standard for society. However, this may be overwhelming for people since there are too many options, creating uncertainty and confusion.
+
 ## Success Metrics
 
+Average session time at least 3 minutes per use
+Good user satisfaction
+Majority of users should store at least 3 clothing items in their virtual wardrobe
+At least a 20% decrease in clothing returns 
+
 ## Requirements
+
+The application should have the following:
+
+Clothing link authenticator/integration
+    Allows users to input a clothing link (URL) to import clothing piece
+
+Virtual body simulation
+    Accepts user body measurements to improve fitting accuracy
+    Users should be able to adjust their measurements whenever
+
+Fit estimation
+    Determines if the clothing the user picked will fit the individual using the app
+
+Virtual Wardrobe
+    Users should have a virtual wardrobe separating clothing items by type (shirt, pants, etc)
+
+Outfit View
+    Users should be able to try on clothing pieces to determine how they would look
 
 ### Functional
 
 ### Non-functional
 
 ### Ethical
+
+Never store images/measurements without consent from the user
+Will collect only the necessary data required for app to function
+Users should be able to delete their images/data anytime
+Bias free (No one should have restricted access based on ethnicity/demographics)
+No images generated should be harmful for the user
+Encryption will store sensitive data (username/password) for users
+Avoid unrealistic images that may result in a negative reaction from user (body morphing)
+Will not include a social media aspect that may induce social anxiety or body shaming
+Will support all genders identities
+Age appropriate regulation
+
+
 
 ## Target Users
 
