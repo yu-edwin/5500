@@ -22,6 +22,17 @@ Average session time at least 3 minutes per use
 Good user satisfaction
 Majority of users should store at least 3 clothing items in their virtual wardrobe
 At least a 20% decrease in clothing returns 
+1.1 There should be an app made for iOS devices (essential)
+
+1.2 The user is able to use the camera in the app (essential)
+
+1.3 The user should be able to record and capture how they look in the app (essential)
+
+1.4 The clothing item can be successfully shown on top of the camera view (essential)
+
+2.1 The user can give the link to a clothing item (essential)
+
+2.2 The link can be accessed and then the images for the clothing item can be obtained (essential)
 
 ## Requirements
 
