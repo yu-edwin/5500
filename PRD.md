@@ -59,13 +59,17 @@ Outfit View
 1. As a user who wants to understand brand clothing size, I want to visualize the clothing on my visual person so I can forsee how I would appear before buying the items.
 2. As a student getting into fashion, I want to be able to experiment on different types of clothing so I can visualize the outfits and generate new ideas in the future.
 3. As a student unfamiliar with the current trends, I want to familiarize myself with different brands and outfits so I can be confident in my outwear and generate good impressions from others based on my outfit.
+4. Able to get clothing items from any given website.
+5. Able to display the AR clothing onto the user's camera view.
+6. Should be able to track the user's movement and adjust the AR clothing accordingly.
+
 ### Non-functional
 
 1. Easy access though my mobile application anytime and anywhere.
 2. Fast generation of images and response time
 3. Privacy of information
-4. Capable of storing large amounts of items in a wardrobe
-5. Available and not restricted to anyone based on demographics/race/gender.
+4. Capable of storing large amounts of items in a wardrobe.
+5. Core functionality accessible whilst offline.
 
 ### Ethical
 
@@ -77,8 +81,7 @@ Outfit View
 6. Encryption will store sensitive data (username/password) for users
 7. Avoid unrealistic images that may result in a negative reaction from user (body morphing)
 8. Will not include a social media aspect that may induce social anxiety or body shaming
-9. Will support all genders identities
-10. Age appropriate regulation
+9. Will support all genders identities, age, race, and other demographics.
 
 ## User Dimensions Analysis
 
