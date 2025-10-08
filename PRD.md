@@ -515,7 +515,7 @@ Style > comfort > cost
 Brand does not matter at all in decision
 
 # Daiki’s Customer Interview Notes - Virtual Try-On App
-Name: Daiki Koike 
+Name: Daiki
  Date: 2025-10-01
  Project: AI-Powered Virtual Try-On for Online Clothing Shopping
 
@@ -632,3 +632,21 @@ Frustration with process (Daniel, Ashwin)
 Ashley: Spends hours/weeks researching
 Daniel: Accepts frustration
 Ashwin: Keeps clothes that don't fit
+
+## AI Assistance Note
+
+**Team Contributions:**
+All customer interviews, user research, personas, journey mapping, storyboards, and strategic decisions were completed by Justin, Daiki, and Edwin. AI-generated content was reviewed and edited by our team.
+
+**Tool Used:** Claude (Anthropic) - Sonnet 4.5
+
+**Usage:**
+- User Stories formatting (INVEST+E format with MoSCoW prioritization)
+- Requirements structuring and organization  
+- Technical specifications formatting
+
+**Key Prompts:**
+- "Explain and help format user stories into INVEST+E format with MoSCoW prioritization"
+- "Review PRD against rubric requirements and identify gaps"
+
+**Date:** October 8, 2025
