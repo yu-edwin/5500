@@ -135,24 +135,171 @@ These people don’t care about their fashion choices, but wear clothes that are
 
 ![](assets/PRD/JourneyMapping.png)
 
-### User Stories
+### User Stories (INVEST+E Format with MoSCoW Prioritization)
 
-#### High Fashion/High Budget
-(High – Alex Wang) As a student attending a campus career fair, I want curated outfit recommendations for professional events so that I can feel confident and make a strong first impression with recruiters.
-(Low - Jeremy) As an international student who enjoys high fashion and luxury brands, I want to discover exclusive and trendy pieces so I can stand out confidently among my peers.
-(Medium - John Smith) As a fashion designer developing new potential clothing trends, I want to explore more clothing combinations so I can satisfy my clients.
-#### High Fashion/Low Budget
-(Medium - Matt Buff) As a low budget student who still values fashion, I want to find stylish clothes from affordable stores so I can look fashionable without overspending.
-(High - James) As a student with a higher budget, I want reliable sizing and fit suggestions from fashion stores so I can avoid frequent returns and tailoring costs.
-(Low - David ) As a beginner social media influencer, I want to wear iconic clothes from high brands so I can grow my online presence and attract collaborations.
-#### Low Fashion/High Budget
-(High Richard) As a student who prioritizes luxurious/high quality clothing, I want to buy staple items from well-known labels so I can feel confident through brand association.
-(Low - Emily) As a social media influencer, I want new ideas based on outfits mixed with luxury and/or affordable brands so I can create inspiring posts that attract new followers.
-(Medium - Koby) As a foreign exchange student ( freshman ) new to the U.S., I want to buy familiar domestic brands so I can feel comfortable and fit in with my peers.
-#### Low Fashion/Low Budget
-(High - David Kosher) As a new freshman student, I want to increase the variety of clothes in my wardrobe so that I can be more confident in the way I present myself in public.
-(Medium - Amanda ) As a student who is just getting into fashion, I want to explore simple, low cost clothing options so I can experiment on new outfits without worrying too much about costs.
-(Low - Ryan) As someone not interested in trends, I want to quickly find basic, comfortable clothing so I can minimize shopping and focus on other tasks in my day. 
+#### High Fashion/High Budget Persona
+
+**US-HH-1 (High Fashion/High Budget): Professional Outfit Recommendations**
+- **As:** Alex Wang, a student attending campus career fairs
+- **I want:** Curated outfit recommendations for professional events
+- **So that:** I can feel confident and make a strong first impression with recruiters
+- **Acceptance Criteria:**
+  - System suggests 3-5 complete outfit combinations
+  - Recommendations match professional dress code
+  - Suggestions utilize items already in virtual wardrobe when possible
+  - Response time under 5 seconds
+- **Condition of Satisfaction:** 75% of users save at least one recommended professional outfit to their wardrobe
+- **Priority:** Must Have
+- **Estimate:** 8 story points
+
+**US-HH-2 (High Fashion/High Budget): Exclusive Brand Discovery**
+- **As:** Jeremy, an international student who enjoys luxury brands
+- **I want:** To discover exclusive and trendy pieces from high-end brands
+- **So that:** I can stand out confidently among my peers
+- **Acceptance Criteria:**
+  - System integrates with at least 5 luxury brand websites
+  - Filter options for "trending" and "exclusive" items
+  - Price range filtering available
+  - Virtual try-on works with luxury brand imagery
+- **Condition of Satisfaction:** Users discover and virtually try on at least 3 new luxury items per session
+- **Priority:** Should Have
+- **Estimate:** 13 story points
+
+**US-HH-3 (High Fashion/High Budget): Designer Outfit Exploration**
+- **As:** John Smith, a fashion designer
+- **I want:** To explore various clothing combinations quickly
+- **So that:** I can create mood boards and satisfy my clients
+- **Acceptance Criteria:**
+  - Mix-and-match feature for combining items
+  - Save multiple outfit combinations
+  - Export outfit images for presentations
+  - Color coordination suggestions
+- **Condition of Satisfaction:** Designers create and save at least 5 outfit combinations per session
+- **Priority:** Could Have
+- **Estimate:** 5 story points
+
+#### High Fashion/Low Budget Persona
+
+**US-HL-1 (High Fashion/Low Budget): Affordable Fashion Discovery**
+- **As:** Matt Buff, a budget-conscious student who values fashion
+- **I want:** To find stylish clothes from affordable stores
+- **So that:** I can look fashionable without overspending
+- **Acceptance Criteria:**
+  - Filter by price range (e.g., under $30, $30-50)
+  - Integration with affordable retailers (H&M, Zara, Uniqlo, etc.)
+  - "Similar items, lower price" suggestion feature
+  - Budget tracking for virtual wardrobe
+- **Condition of Satisfaction:** 80% of users find and save at least 2 items under their specified budget per session
+- **Priority:** Must Have
+- **Estimate:** 8 story points
+
+**US-HL-2 (High Fashion/Low Budget): Reliable Sizing and Fit**
+- **As:** James, a student with a higher budget
+- **I want:** Reliable sizing and fit suggestions
+- **So that:** I can avoid frequent returns and tailoring costs
+- **Acceptance Criteria:**
+  - Body measurement input system
+  - Fit prediction algorithm (Tight/Perfect/Loose)
+  - Size comparison across different brands
+  - Fit confidence score (0-100%)
+- **Condition of Satisfaction:** Returns decrease by 20% for users who use fit prediction feature
+- **Priority:** Must Have
+- **Estimate:** 13 story points
+
+**US-HL-3 (High Fashion/Low Budget): Social Media Fashion Growth**
+- **As:** David, a beginner social media influencer
+- **I want:** To virtually try iconic pieces from recognizable brands
+- **So that:** I can grow my online presence and attract collaborations
+- **Acceptance Criteria:**
+  - Share virtual try-on images to social media
+  - Hashtag and brand tag suggestions
+  - Outfit "look-book" creation feature
+  - Watermark-free export option
+- **Condition of Satisfaction:** 60% of influencer users share at least one virtual try-on per week
+- **Priority:** Could Have
+- **Estimate:** 5 story points
+
+#### Low Fashion/High Budget Persona
+
+**US-LH-1 (Low Fashion/High Budget): Luxury Staple Items**
+- **As:** Richard, a student who prioritizes high-quality clothing
+- **I want:** To buy staple items from well-known luxury labels
+- **So that:** I can feel confident through brand association
+- **Acceptance Criteria:**
+  - Filter by brand reputation/quality score
+  - Focus on classic, timeless pieces
+  - Material and quality information display
+  - Brand authenticity verification
+- **Condition of Satisfaction:** 70% of users successfully identify and purchase at least 1 luxury staple item per month
+- **Priority:** Should Have
+- **Estimate:** 5 story points
+
+**US-LH-2 (Low Fashion/High Budget): Luxury-Affordable Mix Inspiration**
+- **As:** Emily, a social media influencer
+- **I want:** Outfit ideas mixing luxury and affordable brands
+- **So that:** I can create inspiring posts that attract followers
+- **Acceptance Criteria:**
+  - "Mix & Match" feature combining high/low price items
+  - Style inspiration gallery
+  - Cost breakdown per outfit
+  - "Get the look for less" alternatives
+- **Condition of Satisfaction:** Users create and share at least 2 mixed-budget outfits per week
+- **Priority:** Could Have
+- **Estimate:** 8 story points
+
+**US-LH-3 (Low Fashion/High Budget): Familiar Brand Comfort**
+- **As:** Koby, a foreign exchange freshman
+- **I want:** To find familiar domestic brands
+- **So that:** I can feel comfortable and fit in with peers
+- **Acceptance Criteria:**
+  - Brand origin/location information
+  - Filter by "domestic" vs "international" brands
+  - Popular on-campus brands highlighted
+  - Cultural style guides
+- **Condition of Satisfaction:** 65% of international students successfully find and purchase items from at least 2 familiar brands
+- **Priority:** Won't Have (for initial release)
+- **Estimate:** 3 story points
+
+#### Low Fashion/Low Budget Persona
+
+**US-LL-1 (Low Fashion/Low Budget): Wardrobe Variety Building**
+- **As:** David Kosher, a new freshman
+- **I want:** To increase the variety of clothes in my wardrobe
+- **So that:** I can be more confident in how I present myself
+- **Acceptance Criteria:**
+  - Wardrobe diversity analysis
+  - Suggestions for missing clothing types
+  - Budget-friendly wardrobe expansion plans
+  - Style profile questionnaire
+- **Condition of Satisfaction:** Users add at least 3 different clothing types to their wardrobe within first month
+- **Priority:** Must Have
+- **Estimate:** 8 story points
+
+**US-LL-2 (Low Fashion/Low Budget): Fashion Experimentation**
+- **As:** Amanda, a student new to fashion
+- **I want:** To explore simple, low-cost clothing options
+- **So that:** I can experiment with new outfits without financial worry
+- **Acceptance Criteria:**
+  - "Beginner-friendly" style filter
+  - Under $20 item filter
+  - Basic outfit combination templates
+  - Fashion 101 tips and guides
+- **Condition of Satisfaction:** 70% of fashion beginners try at least 5 different outfit combinations in first week
+- **Priority:** Should Have
+- **Estimate:** 5 story points
+
+**US-LL-3 (Low Fashion/Low Budget): Quick Basic Shopping**
+- **As:** Ryan, someone not interested in trends
+- **I want:** To quickly find basic, comfortable clothing
+- **So that:** I can minimize shopping time and focus on other tasks
+- **Acceptance Criteria:**
+  - "Basics only" quick-filter option
+  - One-click reorder of previous purchases
+  - Minimal UI mode
+  - Fast checkout process
+- **Condition of Satisfaction:** Users complete shopping in under 3 minutes from app open to checkout
+- **Priority:** Should Have
+- **Estimate:** 3 story points
 
 ### Storyboards
 #### High Fashion/High Budget
