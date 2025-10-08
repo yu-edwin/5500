@@ -632,3 +632,22 @@ Frustration with process (Daniel, Ashwin)
 Ashley: Spends hours/weeks researching
 Daniel: Accepts frustration
 Ashwin: Keeps clothes that don't fit
+
+## AI Assistance Note
+
+**Tool Used:** Claude (Anthropic) - Sonnet 4.5
+
+**Usage:**
+- User Stories formatting (INVEST+E format with MoSCoW prioritization)
+- Requirements structuring and organization  
+- Technical specifications formatting
+
+**Key Prompts:**
+- "Explain and help format user stories into INVEST+E format with MoSCoW prioritization"
+- "Provide structure for Non-Functional Requirements (performance, security, accessibility)"
+- "Review PRD against rubric requirements and identify gaps"
+
+**Team Contributions:**
+All customer interviews, user research, personas, journey mapping, storyboards, and strategic decisions were completed by Justin Dong, Daiki Koike, and Edwin Yu. AI-generated content was reviewed and edited by our team.
+
+**Date:** October 8, 2025
