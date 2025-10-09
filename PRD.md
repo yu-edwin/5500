@@ -118,26 +118,27 @@ These people are likely more carefree and outgoing people who believe that the c
 ![](assets/PRD/PersonaHH.png)
 
 Gemini Script: Can you generate a profile picture of an international asian male that is an undergraduate that is around 20 years old who is dripped out
+
 High Fashion/Low Budget:
 Individuals who likely enjoy finding a creative/original outfit that doesn’t necessarily include items with expensive logos/names. They might favor small local clothing shops and shop in outlets for potentially cheaper prices.
 
 ![](assets/PRD/PersonaHL.png)
 
-Gemini Script: Can you generate a profile image of a stylish fashion designer (female) in her 30s
+Gemini Script: Can you generate a profile image of a stylish fashion designer (female) in her 30s who returns alot of clothing items and spends alot of time researching trends. Show her holding items that relate to her profession. 
 
 Low Fashion/High Budget
 These people don’t necessarily care about fashion trends or styles but rather feel more confident in the value of a brand association/more luxurious clothes. 
 
 ![](assets/PRD/PersonaLH.png)
 
-Gemini Script: Can you make a profile picture of an american ethnicity male graduate student who lives a gym lifestyle with a whiteboard
+Gemini Script: Can you make a profile picture of an american ethnicity male graduate student who lives a gym lifestyle. He has the mindset "If its not in my workout calander, it doesn't exist for me."
 
 Low Fashion/Low Budget:
 These people don’t care about their fashion choices, but wear clothes that are more comfortable and sustainable for their everyday life. They could be curious about new fashion trends and might want to change their wardrobe, but are uncertain on how to achieve that.
 
 ![](assets/PRD/PersonaLL.png)
 
-Gemini Script: Can you generate a profile picture of a freshman male student who is struggling with clothes
+Gemini Script: Can you generate a profile picture of a freshman male student who is struggling with clothes inside his dorm looking defeated with all the clothing options on the floor around him. He is sitting ontop of his clothes.
 
 ## Tasks
 
