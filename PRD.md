@@ -18,24 +18,6 @@ Wasting time/money - Many customers are unsatisfied in their clothing item purch
 
 Outfit/Fashion - Many brands now currently have multiple styles available and different types of clothes that companies have decided as the standard for society. However, this may be overwhelming for people since there are too many options, creating uncertainty and confusion.
 
-## Success Metrics
-
-1.1 There should be an app made for iOS devices (essential)
-
-1.2 The user is able to use the camera in the app (essential)
-
-1.3 The user should be able to record and capture how they look in the app (essential)
-
-1.4 The clothing item can be successfully shown on top of the camera view (essential)
-
-2.1 The user can give the link to a clothing item (essential)
-
-2.2 The link can be accessed and stored on the app (essential)
-
-2.3 The images for the clothing item can be shown on the app (essential)
-
-2.4 The user should be able to keep track of their clothes on the app (essential)
-
 ## Requirements
 
 The application should have the following:
