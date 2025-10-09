@@ -23,20 +23,20 @@ Outfit/Fashion - Many brands now currently have multiple styles available and di
 The application should have the following:
 
 1. Clothing link authenticator/integration. 
-    Allows users to input a clothing link (URL) to import clothing piece
+- Allows users to input a clothing link (URL) to import clothing piece
 
 2. Virtual body simulation. 
-    Accepts user body measurements to improve fitting accuracy  
-    Users should be able to adjust their measurements whenever
+- Accepts user body measurements to improve fitting accuracy  
+- Users should be able to adjust their measurements whenever
 
 3. Fit estimation. 
-    Determines if the clothing the user picked will fit the individual using the app
+- Determines if the clothing the user picked will fit the individual using the app
 
 4. Virtual Wardrobe. 
-    Users should have a virtual wardrobe separating clothing items by type (shirt, pants, etc)
+- Users should have a virtual wardrobe separating clothing items by type (shirt, pants, etc)
 
 5. Outfit View. 
-    Users should be able to try on clothing pieces to determine how they would look
+- Users should be able to try on clothing pieces to determine how they would look
 
 ### Functional
 
