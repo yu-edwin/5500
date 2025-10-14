@@ -6,27 +6,37 @@
 //
 
 import SwiftUI
-import RealityKit
-import ARKit
-import PhotosUI
 
 struct ContentView: View {
+    @State private var showCamera = false
+    @State private var selectedTab = 0
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             Text("Wardrobe Placeholder")
-            .tabItem {
-                Label("Wardrobe", systemImage: "hanger")
-            }
-            
-            CameraView()
+                .tabItem {
+                    Label("Wardrobe", systemImage: "hanger")
+                }
+                .tag(0)
+            Text("Camera")
                 .tabItem {
                     Label("Camera", systemImage: "camera")
                 }
-
+                .tag(1)
             Text("Settings Placeholder")
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
+                .tag(2)
+        }
+        .onChange(of: selectedTab) { _, newValue in
+            if newValue == 1 {
+                showCamera = true
+                selectedTab = 0
+            }
+        }
+        .fullScreenCover(isPresented: $showCamera) {
+            CameraView(isPresented: $showCamera)
+                .ignoresSafeArea()
         }
     }
 }

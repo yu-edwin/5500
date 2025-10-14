@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct CameraView: UIViewControllerRepresentable {
+    @Binding var isPresented: Bool
+    
     func makeUIViewController(context: Context) -> CameraViewController {
-        CameraViewController()
+        let controller = CameraViewController()
+        controller.onDismiss = {
+            isPresented = false
+        }
+        return controller
     }
+    
     func updateUIViewController(_ uiViewController: CameraViewController, context: Context) {}
 }
+
