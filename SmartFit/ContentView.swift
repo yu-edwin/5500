@@ -12,8 +12,22 @@ import PhotosUI
 
 struct ContentView: View {
     var body: some View {
-        CameraView()
-            .ignoresSafeArea() // full screen
+        TabView {
+            Text("Wardrobe Placeholder")
+            .tabItem {
+                Label("Wardrobe", systemImage: "hanger")
+            }
+            
+            CameraView()
+                .tabItem {
+                    Label("Camera", systemImage: "camera")
+                }
+
+            Text("Settings Placeholder")
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
+        }
     }
 }
 
