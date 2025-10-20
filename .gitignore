@@ -60,5 +60,6 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
-
+backend/node_modules
+backend/.env
 .DS_Store
