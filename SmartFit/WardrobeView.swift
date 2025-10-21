@@ -18,7 +18,6 @@ struct WardrobeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // Category filter
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(categories, id: \.self) { category in
@@ -35,7 +34,6 @@ struct WardrobeView: View {
                     .padding()
                 }
                 
-                // Items grid
                 if filteredItems.isEmpty {
                     VStack {
                         Image(systemName: "hanger")
@@ -83,7 +81,7 @@ struct WardrobeView: View {
     
     func loadItems() {
         Task {
-            guard let url = URL(string: "http://localhost:5000/api/wardrobe?userId=test-user") else { return }
+            guard let url = URL(string: "http://localhost:3000/api/wardrobe") else { return }
             do {
                 let (data, _) = try await URLSession.shared.data(from: url)
                 let response = try JSONDecoder().decode(WardrobeResponse.self, from: data)
@@ -100,7 +98,6 @@ struct ItemCard: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            // Image
             if let imageData = item.image_data,
                let base64 = imageData.components(separatedBy: ",").last,
                let data = Data(base64Encoded: base64),
@@ -202,7 +199,7 @@ struct AddItemSheet: View {
     
     func addItem() {
         Task {
-            guard let url = URL(string: "http://localhost:5000/api/wardrobe") else { return }
+            guard let url = URL(string: "http://localhost:3000/api/wardrobe") else { return }
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -232,7 +229,6 @@ struct AddItemSheet: View {
     }
 }
 
-// Models
 struct WardrobeItem: Identifiable, Codable {
     let id: String
     let userId: String
