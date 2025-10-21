@@ -16,7 +16,8 @@ const seedData = async () => {
       
       const clothingItem1 = await Wardrobeitem.create({
           userId: user._id,
-          category: "Shirt",
+          name: "Blue Zara Shirt",
+          category: "tops",
           price: 5.99,
           color: "Blue",
           material: "Cotton",
@@ -30,7 +31,8 @@ const seedData = async () => {
         
         const clothingItem2 = await Wardrobeitem.create({
             userId: user._id,
-            category: "Pants",
+            name: "Black AE Pants",
+            category: "bottoms",
             price: 10.99,
             color: "Black",
             material: "Fiber",
@@ -46,7 +48,7 @@ const seedData = async () => {
       console.log(`Using existing user: ${user.name}`);
     }
   } catch (err) {
-    console.error("Failed to compile:", err);
+    console.error("Failed to seed:", err);
   }
 };
 

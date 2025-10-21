@@ -10,7 +10,15 @@ const clothingItem = new Schema({
     },
     category: {
         type: String,
-        trim: true,
+        enum: ['tops', 'bottoms', 'shoes', 'outerwear', 'accessories'],
+        required: true,
+        lowercase: true,
+        trim: true
+    },
+    name: {
+        type: String,
+        required: true,
+        trim: true
     },
     price: {
         type: Number,
@@ -24,6 +32,7 @@ const clothingItem = new Schema({
     material: String,
     brand: String,
     image_url: String,
+    image_data: String,
     arObject: String,
     item_url: String,
     createdAt: {
