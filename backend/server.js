@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import connectToDB from "./config/mongoDBConnection.js";
 import seedData from "./config/seedData.js";
 import wardrobeRoutes from "./routes/wardrobeRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ const startServer = async () => {
     await connectToDB();
     await seedData();
 
+    app.use('/api/user', userRoutes);
     app.use('/api/wardrobe', wardrobeRoutes);
     console.log("Routes are supported")
 

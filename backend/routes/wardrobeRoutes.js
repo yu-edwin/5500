@@ -1,6 +1,4 @@
 import express from 'express';
-import mongoose from 'mongoose';
-import Wardrobeitem from '../models/clothingSchema.js';
 import {
     getAllItems,
     createClothingItem,
