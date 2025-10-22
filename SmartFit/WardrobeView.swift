@@ -205,7 +205,7 @@ struct AddItemSheet: View {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             
             var body: [String: Any] = [
-                "userId": "test-user",
+                "userId": "68f922e8bddd7ff26ca28350",
                 "name": name,
                 "category": category,
                 "brand": brand
