@@ -20,10 +20,10 @@ const seedData = async () => {
           category: "tops",
           price: 5.99,
           color: "Blue",
+          size: "m",
           material: "Cotton",
           brand: "Zara",
           image_url: "placeholder.png",
-          arObject: "placeholder",
           item_url: "madeuplink.com",
         });
         
@@ -35,10 +35,10 @@ const seedData = async () => {
             category: "bottoms",
             price: 10.99,
             color: "Black",
+            size: "l",
             material: "Fiber",
             brand: "American Eagle",
             image_url: "placeholder.png",
-            arObject: "placeholder",
             item_url: "madeuplink.com",
         });
         

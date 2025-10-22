@@ -1,4 +1,5 @@
 import Wardrobeitem from "../models/clothingSchema.js";
+import mongoose from "mongoose";
 
 // GET request: Get all items in wardrobe
 export const getAllItems = async (req, res) => {
@@ -15,14 +16,14 @@ export const getAllItems = async (req, res) => {
         console.log('Found items:', items.length);
         console.log('Items:', items);
         
-        res.json({ success: true, data: items });
+        res.json({ data: items });
     } catch (error) {
         console.error('Error:', error);
         res.status(500).json({ success: false, error: error.message });
     }
 };
 
-// PUT request: Insert new clothing item in wardrobe
+// POST request: Insert new clothing item in wardrobe
 export const createClothingItem = async (req,res) => {
     console.log('POST /api/wardrobe called with:', req.body);
     try {
