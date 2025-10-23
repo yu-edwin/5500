@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Wardrobeitem from "../models/clothingSchema.js";
 import { analyzeClothingImage } from "../services/geminiService.js";
 
@@ -33,13 +34,8 @@ export const createClothingItem = async (req,res) => {
 
         // Calling on gemini service
         if (req.body.image_data) {
-            try {
-                const description = await analyzeClothingImage(req.body.image_data);
-                req.body.description = description;
-                console.log('Generated description:', description);
-            } catch (error) {
-                console.error('Gemini analysis error:', error);
-            }
+            const description = await analyzeClothingImage(req.body.image_data);
+            req.body.description = description;
         }
 
         const newItem = await Wardrobeitem.create(req.body);

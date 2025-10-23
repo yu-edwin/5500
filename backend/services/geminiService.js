@@ -1,32 +1,42 @@
 import { GoogleGenAI } from "@google/genai";
 
-// Initialize Gemini API
-const genAI = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
-
 /**
  * Analyzes clothing item image using Gemini Vision API
  * @param {string} base64ImageData - Base64 encoded image data (with or without data URI prefix)
  * @returns {Promise<string>} Description of the clothing item
  */
 export const analyzeClothingImage = async (base64ImageData) => {
-    try {
-        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+    if (!process.env.GOOGLE_API_KEY) {
+        throw new Error("GOOGLE_API_KEY not set");
+    }
 
-        const response = await model.generateContent([
+    console.log("starting gemini call");
+    const genAI = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
+
+    // Cleans data prefixes
+    const cleanBase64 = base64ImageData.replace(/^data:image\/[^;]+;base64,/, '');
+
+    try {
+        const contents = [
             {
                 inlineData: {
-                    data: base64ImageData,
                     mimeType: "image/jpeg",
+                    data: cleanBase64,
                 },
             },
-            "Provide a brief description of this clothing item.",
-        ]);
+            { text: "describe the clothes on this image" },
+        ];
+        console.log("starting api call");
+        const response = await genAI.models.generateContent({
+            model: "gemini-2.0-flash",
+            contents: contents,
+        });
 
-        const description = response.response.text();
+        const description = response.text;
 
         return description;
     } catch (error) {
         console.error("Gemini API Error:", error);
-        throw new Error(`Failed to analyze clothing image: ${error.message}`);
+        throw new Error(`Gemini API Error: ${error.message}`);
     }
 };
