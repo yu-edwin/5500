@@ -17,14 +17,14 @@ export const getAllItems = async (req, res) => {
         console.log('Found items:', items.length);
         console.log('Items:', items);
         
-        res.json({ success: true, data: items });
+        res.json({ data: items });
     } catch (error) {
         console.error('Error:', error);
         res.status(500).json({ success: false, error: error.message });
     }
 };
 
-// PUT request: Insert new clothing item in wardrobe
+// POST request: Insert new clothing item in wardrobe
 export const createClothingItem = async (req,res) => {
     console.log('POST /api/wardrobe called with:', req.body);
     try {
@@ -56,3 +56,26 @@ export const deleteClothingItem = async (req,res) => {
         res.status(500).json({ success: false, error: error.message });
     }
 };
+
+export const updateClothingItem = async (req,res) => {
+    try {
+        const { id } = req.params;
+        const updates = req.body;
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ message: "You have provided an invalid clothing ID (Not real or not mongoose object ID. Try again"});
+        }
+
+        const updatedItem = await Wardrobeitem.findByIdAndUpdate(
+            id,
+            { $set: updates },
+            { new: true }
+        )
+
+        res.status(200).json({ 
+            message: `You have updated clothing item id: ${id}`,
+            data: updatedItem
+        });
+    } catch (err) {
+        res.status(500).json({ message: `Failed to update clothing item... HERE IS ERROR: ${err}`})
+    }
+}

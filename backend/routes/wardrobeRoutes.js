@@ -1,16 +1,16 @@
 import express from 'express';
-import mongoose from 'mongoose';
-import Wardrobeitem from '../models/clothingSchema.js';
 import {
     getAllItems,
     createClothingItem,
-    deleteClothingItem
+    deleteClothingItem,
+    updateClothingItem
 } from "../controller/wardrobeController.js";
 
 const router = express.Router();
 
 router.get("/", getAllItems);
 router.post("/", createClothingItem);
+router.put("/:id", updateClothingItem);
 router.delete("/:id", deleteClothingItem);
 
 export default router;
