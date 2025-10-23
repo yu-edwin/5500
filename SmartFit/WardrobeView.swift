@@ -81,7 +81,7 @@ struct WardrobeView: View {
     
     func loadItems() {
         Task {
-            guard let url = URL(string: "http://localhost:3000/api/wardrobe") else { return }
+            guard let url = URL(string: "https://smartfit-backend-lhz4.onrender.com/api/wardrobe") else { return }
             do {
                 let (data, _) = try await URLSession.shared.data(from: url)
                 let response = try JSONDecoder().decode(WardrobeResponse.self, from: data)
@@ -199,7 +199,7 @@ struct AddItemSheet: View {
     
     func addItem() {
         Task {
-            guard let url = URL(string: "http://localhost:3000/api/wardrobe") else { return }
+            guard let url = URL(string: "https://smartfit-backend-lhz4.onrender.com/api/wardrobe") else { return }
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -245,7 +245,6 @@ struct WardrobeItem: Identifiable, Codable {
 }
 
 struct WardrobeResponse: Codable {
-    let success: Bool
     let data: [WardrobeItem]
 }
 
