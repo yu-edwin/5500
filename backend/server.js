@@ -1,13 +1,13 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 import connectToDB from "./config/mongoDBConnection.js";
 import seedData from "./config/seedData.js";
 import wardrobeRoutes from "./routes/wardrobeRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
-
-dotenv.config();
 
 const app = express();
 app.use(cors());

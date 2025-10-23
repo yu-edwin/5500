@@ -1,5 +1,6 @@
-import Wardrobeitem from "../models/clothingSchema.js";
 import mongoose from "mongoose";
+import Wardrobeitem from "../models/clothingSchema.js";
+import { analyzeClothingImage } from "../services/geminiService.js";
 
 // GET request: Get all items in wardrobe
 export const getAllItems = async (req, res) => {
@@ -30,7 +31,13 @@ export const createClothingItem = async (req,res) => {
         if (req.body.userId && !mongoose.Types.ObjectId.isValid(req.body.userId)) {
             req.body.userId = new mongoose.Types.ObjectId();
         }
-        
+
+        // Calling on gemini service
+        if (req.body.image_data) {
+            const description = await analyzeClothingImage(req.body.image_data);
+            req.body.description = description;
+        }
+
         const newItem = await Wardrobeitem.create(req.body);
         console.log('Created item:', newItem._id);
         res.status(201).json({ success: true, data: newItem });

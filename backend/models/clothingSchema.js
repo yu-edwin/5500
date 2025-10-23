@@ -36,6 +36,7 @@ const clothingItem = new Schema({
     },
     material: String,
     brand: String,
+    description: String,
     image_url: String,
     image_data: String,
     item_url: String,
