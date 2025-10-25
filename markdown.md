@@ -1,143 +1,140 @@
 # Sprint 1 Report - Smartfit
 
-## 📋 MVP Definition
+##  MVP Definition
 
-### 🧩 Description
-<!-- Provide a short, clear description of your MVP -->
+###  Description
 
-### 🎯 MVP Goal
-<!-- Explain what the MVP is meant to achieve -->
+Our first MVP for sprint 1 will ensure that our customer/client will have a functional vitual wardrobe that allows for clothing storage. Users will be able to upload a clothing item and input specific information such as name, brand, etc to be stored in a database. In our case, we decided for a NoSQL database using MongoDB, connected by node/express and mongoose. Users will also be able to use the camera, but full upload via camera may be completed in the next sprint. 
 
-### 💡 User Problem Solved
-<!-- What user problem does your MVP address? -->
+###  MVP Goal
 
-### 💎 Value Proposition
-<!-- How does it add value to the user compared to alternatives? -->
+- Functional virtual wardrobe that is able to store clothing items in the backend along with multiple users.
+- Upload by clothing item by image
 
-### 📦 Backlog Items Included in MVP
-<!-- List which backlog items were part of your MVP -->
-- [ ] Item 1
-- [ ] Item 2
-- [ ] Item 3
+###  User Problem Solved
 
----
+Users would be able to mix and match multiple items to form a single outfit instead of uploading ONLY the full outfit and checking to see if they like the appearance generated. This gives the user a greater variety of outfits they can choose since they can experiment with new fits. 
 
-## ✅ Evidence of SCRUM Process
 
-### 1. Issues and Satisfaction Criteria
-| Issue ID | Title | Satisfaction Criteria Met? | Evidence (PR/Commit/Screenshot) |
-|-----------|--------|-----------------------------|----------------------------------|
-| # |  | ✅ / ❌ |  |
+Targeted User Stories:
+As: Mathhew, a messy undergraduate student,
+I want to: better organize the clothes that I have
+So that: I can clearly see what options I have virtually instead of searching for them aimlessly in my closet.   
 
----
+As: Alex Wang, a student attending campus career fairs
+I want: Curated outfit recommendations for professional events
+So that: I can feel confident and make a strong first impression with recruiters
 
-### 2. Completed Issues
-<!-- List all completed issues for the sprint -->
-- [x] Example Issue 1
-- [x] Example Issue 2
+As: John Smith, a fashion designer
+I want: To explore various clothing combinations quickly
+So that: I can create mood boards and satisfy my clients
 
----
+User Problems being solved:
 
-### 3. GitHub History / Change Log
-**Branch Activity:**  
-<!-- Optionally paste git log screenshot or link to GitHub Insights -->
+1. Users have difficulty in viewing all the clothing options they have for their fit of the day
+- A virtual wardrobe that displays ALL clothing items stored
+- Sectioned clothing items based on category (Tops, bottoms, shoes, outwear, accessories)
 
-**Pull Requests Merged:**  
-- PR # — Short description  
-- PR # — Short description  
 
----
+###  Value Proposition
+How does this MVP add value to the user, how is it better than their current alternatives.
+When comparing to google's version of clothing fit check, Doppl, we noticed that you were forced to upload the entire outfit at once in a top/down picture format.  
+This means that their algorithm is only able to detect clothes if you submit a picture of:
+- An full body image of someone wearing an outfit and Doppl will recognize the clothes they are wearing and equip it onto your model.
+- An image where the tops (shirt/jacket/etc) is directly above the bottoms (pants/shorts/etc) 
 
-## 🚀 Working MVP
+Doppl lacks a wardrobe feature since they only have suggested outfits that are pre-registered and only WHOLE outfit uploads, so mixing and matching different tops/bottoms are difficult. 
 
-**Deployed URL:** [https://your-app-link.com](#)  
-**Access Credentials (if required):**  
-- Email:  
-- Password:  
+###  Backlog Items Included in MVP
 
-**Demo Evidence:**  
-<!-- Insert screenshots or GIFs showing the MVP functionality -->
-![MVP Demo](./assets/demo.gif)
+- [Item 1 - DONE] MUST - Wardrobe allows for upload by image (Daiki)
+- [Item 2 - DONE] MUST - Working backend inventory system for wardrobe (Justin)
+- [Item 3 - DONE] MUST - Inventory should have clothing categories (shoes, tops, bottoms ...) (Daiki)
+- [Item 4 - DONE ] MUST - MUST - Uploaded clothing items can be turned into item descriptions with AI (Edwin)
+- [Item 5 - In-Progress ] MUST - Wardrobe allows for equipping one of each clothing type (Edwin)
+- [Item 6 - In-Progress ] SHOULD - Save multiple outfit combinations (Daiki)
 
----
+##  Evidence of SCRUM Process
 
-## 🧩 SCRUM Artifacts & Process Evidence
+### 1. Sprint Planning Meeting
+Sprint Planning Meeting Summary
+Date: October 16, 2025
+Attendees: Justin Dong, Daiki Koike, Edwin Yu
+Duration: 90 minutes
+Sprint Duration: 2 weeks (October 16 - October 30, 2025)
 
-### 1. Sprint Planning Summary
-**Date:**  
-**Attendees:**  
-**Duration:**  
+- During this sprint meeting, we re-examined our backlog to re-evaluate the priority via MoSCoW method and assigned effort values (Fibonacci) for each item on the backlog.
+- Some items (mainly the AI suggestions) were deemed non-essential or overly ambitious, which led us to reprioritize our rankings of our backlog.
+- Each member were given playing cards and participated in "planning poker" where the cards represented Fibonacci numbers to estimate task difficulty.
+- If fibonacci numbers greatly differed, a discussion was held on why each member placed their effort value to re-evaluate the effot value (difficulty) of that task.
+- We decided that for our first sprint, it won't be too extreme as we will develop our virtual wardrobe in the frontend and the backend along with some aspects of camera integration and item storage within the wardrobe.
+- Team assignments were created as each member was assigned TODOS of our first sprint backlog.
+- Discussions about new potential technologies we would use were also considered along with potential API that may be implemented for current and future sprints.
+- Discussed scheduling for sprint meetings to check on the status of the project and potential issues (very brief)
 
-**Agenda:**  
-- Item 1  
-- Item 2  
+### 2. Sprint Standup Meetings
 
-**Sprint Goal:**  
-<!-- Write your sprint goal here -->
+Date: October 22, 2025 (Wednesday)
+Attendees: Justin Dong, Daiki Koike, Edwin Yu
+Duration: 90 minutes (Too long)
 
----
+- Discussed potential problems that we have faced thus far and what we have accomplished
+- Explored options on how to proceed with AI generated outfits (Which technology to use)
+- Decided on gemini to create clothing item description and using that description to generate outfits
+- Familiarized group with backend structure
+- Explored potential backlog items that we missed (User login system/Encrypting sensitive user info/Gemini for user + image for overlay)
 
-### 2. Daily Standups Log
-| Date | What I Did | What I’ll Do | Blockers | Assignee |
-|-------|--------------|--------------|-----------|-----------|
-| YYYY-MM-DD |  |  |  |  |
-| YYYY-MM-DD |  |  |  |  |
+Date: October 23, 2025 (Thursday)
+Attendees: Justin Dong, Daiki Koike, Edwin Yu
+Duration: 30 minutes
 
----
+- Demo the current localhost version of our application. Everything seems to be working as intended
+- Discussed structuring of the code for organization and easier understanding
 
-### 3. Sprint Review (Demo & Feedback)
-**Date:**  
-**Attendees:**  
-**Demo Summary:**  
-<!-- Summarize what was shown during demo -->
+Date: October 24, 2025 (Friday)
+Attendees: Justin Dong, Daiki Koike, Edwin Yu
+Duration: 30 minutes
 
-**User / Stakeholder Feedback:**  
-- Feedback 1  
-- Feedback 2  
+- Viewed options for deployment of application.
 
-**Action Items:**  
-- [ ] To-do 1  
-- [ ] To-do 2  
+Team Work distrbution:
 
----
+Justin:
+1. Created a backend using node/espress.js
+2. Hosted backend on Render and connected to MongoDB database.
+3. Created Schema for clothing item and users
+4. Setup/Helped with GET/POST/PUT/DELETE requests for clothing item
+5. Set up GET request for users (Only get for now since we only have 1 test user)
 
-### 4. Sprint Retrospective
-**Date:**  
-**Team Velocity:** _X story points completed (out of Y committed)_
+Edwin:
+1. Set up xcode frontend
+2. Created Gemini API for clothing item description
+3. Set up camera/Allow for upload
 
-**What Went Right:**  
--  
+Daiki:
+1. Connected CRUD requests from backend to frontend
+2. Setup/Helped with GET/POST/PUT/DELETE requests for clothing item
+3. Added frontend wardrobe features (category/image upload) on frontend 
 
-**What Could Be Better:**  
--  
+### 3. Sprint Reflection
 
-**Improvements for Next Sprint:**  
--  
+- Team Velocity: 18
 
----
+**How to Increase Team Velocity For Next Sprint:**
+1. Organize code into respective folders for neater, legible code.
+2. Write clear descriptions on what code does during pull requests so other members take smaller time understanding what each line does.
+3. Provide resources for understanding languages
 
-### 5. Process Improvements Added to Backlog
-| Improvement | Type | Added By | Status |
-|--------------|------|-----------|--------|
-| Example improvement | Process | Name | Open |
+**What Went Right**
+1. Each team member had clear understanding of their task
+2. Had standups to help cleaer confusion and change course of action if needed
+3. Consistent communication via slack when task is in-progress, completed, or needs review.
 
----
+**How to make it better**
+1. Organization of code
+2. More frequent team stand-ups to understand status of project
+3. Shorter stand-ups to reduce time wasted
 
-## 📊 Team Velocity Chart
-| Sprint | Story Points Committed | Story Points Completed | Velocity (%) |
-|---------|------------------------|--------------------------|---------------|
-| Sprint 1 |  |  |  |
-| Sprint 2 |  |  |  |
+### MVP Deployment
 
----
-
-## 📅 Meeting Notes Summary
-**Sprint Planning:** [Link or notes]  
-**Daily Standups:** [Logged above]  
-**Sprint Review:** [Summary or link]  
-**Sprint Retrospective:** [Summary or link]
-
----
-
-## 🏁 Summary
-<!-- Provide a final wrap-up paragraph summarizing your sprint outcomes -->
+**DeployedURL:** []
