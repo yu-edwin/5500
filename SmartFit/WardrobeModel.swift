@@ -1,5 +1,4 @@
 import Foundation
-import SwiftUI
 
 struct WardrobeItem: Identifiable, Codable {
     let id: String
@@ -16,50 +15,52 @@ struct WardrobeItem: Identifiable, Codable {
     }
 }
 
-struct WardrobeResponse: Codable {
-    let data: [WardrobeItem]
-}
 
-struct ItemCard: View {
-    let item: WardrobeItem
+class WardrobeModel: ObservableObject {
+    @Published var items: [WardrobeItem] = []
 
-    var body: some View {
-        VStack(alignment: .leading) {
-            if let imageData = item.image_data,
-               let base64 = imageData.components(separatedBy: ",").last,
-               let data = Data(base64Encoded: base64),
-               let uiImage = UIImage(data: data) {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 150)
-                    .clipped()
-                    .cornerRadius(8)
-            } else {
-                Rectangle()
-                    .fill(Color.gray.opacity(0.2))
-                    .frame(height: 150)
-                    .cornerRadius(8)
-                    .overlay(
-                        Image(systemName: "tshirt")
-                            .font(.system(size: 40))
-                            .foregroundColor(.gray)
-                    )
-            }
+    private let baseURL = "https://smartfit-backend-lhz4.onrender.com/api/wardrobe"
 
-            Text(item.name)
-                .font(.headline)
-                .lineLimit(1)
-
-            if let brand = item.brand {
-                Text(brand)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-            }
+    func fetchItems() async throws {
+        guard let url = URL(string: baseURL) else {
+            throw NSError(domain: "Invalid URL", code: -1)
         }
-        .padding(8)
-        .background(Color.white)
-        .cornerRadius(12)
-        .shadow(radius: 2)
+
+        let (data, _) = try await URLSession.shared.data(from: url)
+
+        if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+           let dataArray = json["data"] as? [[String: Any]] {
+            let itemsData = try JSONSerialization.data(withJSONObject: dataArray)
+            let decoder = JSONDecoder()
+            items = try decoder.decode([WardrobeItem].self, from: itemsData)
+        }
+    }
+
+    func addItem(name: String, category: String, brand: String, imageData: Data?) async throws {
+        guard let url = URL(string: baseURL) else {
+            throw NSError(domain: "Invalid URL", code: -1)
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        var body: [String: Any] = [
+            "userId": "test-user",
+            "name": name,
+            "category": category,
+            "brand": brand
+        ]
+
+        if let imageData = imageData {
+            let base64 = "data:image/jpeg;base64," + imageData.base64EncodedString()
+            body["image_data"] = base64
+        }
+
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body)
+
+        let (_, _) = try await URLSession.shared.data(for: request)
+
+        try await fetchItems()
     }
 }

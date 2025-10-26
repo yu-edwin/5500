@@ -3,7 +3,7 @@ import PhotosUI
 import SwiftUI
 
 class WardrobeController: ObservableObject {
-    @Published var items: [WardrobeItem] = []
+    @Published var model = WardrobeModel()
     @Published var selectedCategory = "all"
     @Published var showAddSheet = false
 
@@ -18,24 +18,18 @@ class WardrobeController: ObservableObject {
 
     let categories = ["all", "tops", "bottoms", "shoes", "outerwear", "accessories"]
     let formCategories = ["tops", "bottoms", "shoes", "outerwear", "accessories"]
-    private let baseURL = "https://smartfit-backend-lhz4.onrender.com/api/wardrobe"
 
     var filteredItems: [WardrobeItem] {
         if selectedCategory == "all" {
-            return items
+            return model.items
         }
-        return items.filter { $0.category == selectedCategory }
+        return model.items.filter { $0.category == selectedCategory }
     }
 
     func loadItems() {
         Task {
-            guard let url = URL(string: baseURL) else { return }
             do {
-                let (data, _) = try await URLSession.shared.data(from: url)
-                let response = try JSONDecoder().decode(WardrobeResponse.self, from: data)
-                DispatchQueue.main.async {
-                    self.items = response.data
-                }
+                try await model.fetchItems()
             } catch {
                 print("Error loading items: \(error)")
             }
@@ -46,31 +40,8 @@ class WardrobeController: ObservableObject {
         formIsLoading = true
         Task {
             do {
-                guard let url = URL(string: baseURL) else {
-                    throw NSError(domain: "Invalid URL", code: -1)
-                }
-
-                var request = URLRequest(url: url)
-                request.httpMethod = "POST"
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-                var body: [String: Any] = [
-                    "userId": "test-user",
-                    "name": formName,
-                    "category": formCategory,
-                    "brand": formBrand
-                ]
-
-                if let imageData = formImageData {
-                    let base64 = "data:image/jpeg;base64," + imageData.base64EncodedString()
-                    body["image_data"] = base64
-                }
-
-                request.httpBody = try? JSONSerialization.data(withJSONObject: body)
-
-                let (_, _) = try await URLSession.shared.data(for: request)
+                try await model.addItem(name: formName, category: formCategory, brand: formBrand, imageData: formImageData)
                 await MainActor.run {
-                    self.loadItems()
                     self.resetForm()
                     self.showAddSheet = false
                 }
