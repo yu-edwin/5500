@@ -1,4 +1,5 @@
 import SwiftUI
+import PhotosUI
 
 struct WardrobeView: View {
     @StateObject private var controller = WardrobeController()
@@ -59,10 +60,74 @@ struct WardrobeView: View {
                 }
             }
             .sheet(isPresented: $controller.showAddSheet) {
-                WardrobeController.AddItemSheet(controller: controller)
+                AddItemSheet(controller: controller)
             }
             .task {
                 controller.loadItems()
+            }
+        }
+    }
+}
+
+struct AddItemSheet: View {
+    @Environment(\.dismiss) var dismiss
+    @ObservedObject var controller: WardrobeController
+
+    var body: some View {
+        NavigationView {
+            Form {
+                Section("Photo") {
+                    if let imageData = controller.formImageData, let uiImage = UIImage(data: imageData) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxHeight: 200)
+                    }
+                    PhotosPicker(selection: $controller.formSelectedImage, matching: .images) {
+                        Label("Select Photo", systemImage: "photo")
+                    }
+                }
+
+                Section("Details") {
+                    TextField("Name", text: $controller.formName)
+                    Picker("Category", selection: $controller.formCategory) {
+                        ForEach(controller.formCategories, id: \.self) { cat in
+                            Text(cat.capitalized)
+                        }
+                    }
+                    TextField("Brand (optional)", text: $controller.formBrand)
+                }
+
+                if let errorMessage = controller.formErrorMessage {
+                    Section {
+                        Text(errorMessage)
+                            .foregroundColor(.red)
+                            .font(.caption)
+                    }
+                }
+            }
+            .navigationTitle("Add Item")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") {
+                        controller.resetForm()
+                        dismiss()
+                    }
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Add") {
+                        controller.submitAddItem()
+                    }
+                    .disabled(controller.formName.isEmpty || controller.formIsLoading)
+                }
+            }
+            .onChange(of: controller.formSelectedImage) { _, newValue in
+                Task {
+                    if let data = try? await newValue?.loadTransferable(type: Data.self) {
+                        controller.formImageData = data
+                    }
+                }
             }
         }
     }

@@ -46,8 +46,31 @@ class WardrobeController: ObservableObject {
         formIsLoading = true
         Task {
             do {
-                try await addItem(name: formName, category: formCategory, brand: formBrand, imageData: formImageData)
+                guard let url = URL(string: baseURL) else {
+                    throw NSError(domain: "Invalid URL", code: -1)
+                }
+
+                var request = URLRequest(url: url)
+                request.httpMethod = "POST"
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+                var body: [String: Any] = [
+                    "userId": "test-user",
+                    "name": formName,
+                    "category": formCategory,
+                    "brand": formBrand
+                ]
+
+                if let imageData = formImageData {
+                    let base64 = "data:image/jpeg;base64," + imageData.base64EncodedString()
+                    body["image_data"] = base64
+                }
+
+                request.httpBody = try? JSONSerialization.data(withJSONObject: body)
+
+                let (_, _) = try await URLSession.shared.data(for: request)
                 await MainActor.run {
+                    self.loadItems()
                     self.resetForm()
                     self.showAddSheet = false
                 }
@@ -56,41 +79,8 @@ class WardrobeController: ObservableObject {
                     self.formErrorMessage = "Failed to add item: \(error.localizedDescription)"
                     self.formIsLoading = false
                 }
+                print("Error adding item: \(error)")
             }
-        }
-    }
-
-    private func addItem(name: String, category: String, brand: String, imageData: Data?) async throws {
-        guard let url = URL(string: baseURL) else {
-            throw NSError(domain: "Invalid URL", code: -1)
-        }
-
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-        var body: [String: Any] = [
-            "userId": "test-user",
-            "name": name,
-            "category": category,
-            "brand": brand
-        ]
-
-        if let imageData = imageData {
-            let base64 = "data:image/jpeg;base64," + imageData.base64EncodedString()
-            body["image_data"] = base64
-        }
-
-        request.httpBody = try? JSONSerialization.data(withJSONObject: body)
-
-        do {
-            let (_, _) = try await URLSession.shared.data(for: request)
-            await MainActor.run {
-                self.loadItems()
-            }
-        } catch {
-            print("Error adding item: \(error)")
-            throw error
         }
     }
 
@@ -102,69 +92,5 @@ class WardrobeController: ObservableObject {
         formImageData = nil
         formIsLoading = false
         formErrorMessage = nil
-    }
-
-    struct AddItemSheet: View {
-        @Environment(\.dismiss) var dismiss
-        @ObservedObject var controller: WardrobeController
-
-        var body: some View {
-            NavigationView {
-                Form {
-                    Section("Photo") {
-                        if let imageData = controller.formImageData, let uiImage = UIImage(data: imageData) {
-                            Image(uiImage: uiImage)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(maxHeight: 200)
-                        }
-                        PhotosPicker(selection: $controller.formSelectedImage, matching: .images) {
-                            Label("Select Photo", systemImage: "photo")
-                        }
-                    }
-
-                    Section("Details") {
-                        TextField("Name", text: $controller.formName)
-                        Picker("Category", selection: $controller.formCategory) {
-                            ForEach(controller.formCategories, id: \.self) { cat in
-                                Text(cat.capitalized)
-                            }
-                        }
-                        TextField("Brand (optional)", text: $controller.formBrand)
-                    }
-
-                    if let errorMessage = controller.formErrorMessage {
-                        Section {
-                            Text(errorMessage)
-                                .foregroundColor(.red)
-                                .font(.caption)
-                        }
-                    }
-                }
-                .navigationTitle("Add Item")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .cancellationAction) {
-                        Button("Cancel") {
-                            controller.resetForm()
-                            dismiss()
-                        }
-                    }
-                    ToolbarItem(placement: .confirmationAction) {
-                        Button("Add") {
-                            controller.submitAddItem()
-                        }
-                        .disabled(controller.formName.isEmpty || controller.formIsLoading)
-                    }
-                }
-                .onChange(of: controller.formSelectedImage) { _, newValue in
-                    Task {
-                        if let data = try? await newValue?.loadTransferable(type: Data.self) {
-                            controller.formImageData = data
-                        }
-                    }
-                }
-            }
-        }
     }
 }
