@@ -136,6 +136,16 @@ Daiki:
 2. More frequent team stand-ups to understand status of project
 3. Shorter stand-ups to reduce time wasted
 
+### 4. Sprint Review
+
+Demo was tested by Edwin and Justin
+Feedback:
+- Good if we can unselect an clothing item in outfit by selecting an already selected clothing item.
+- Needs a delete outfit button if user does not like outfit
+- Maybe more variety of categories since accessories can be vague as we could include scarfs and bracelets.
+- Delete clothing item feature
+- Helpful if each clothing item displays information when you click on it (price/brand/etc)
+
 ### MVP Deployment
 
-**Deployed URL:** [https://appetize.io/app/b_olij744qrk4ga7v5bqgwhznhou](https://appetize.io/app/b_olij744qrk4ga7v5bqgwhznhou)
+**Deployed URL:** [https://appetize.io/app/b_p3ygky3jpsbdttgm25pzi5du6e](https://appetize.io/app/b_p3ygky3jpsbdttgm25pzi5du6e)
