@@ -121,7 +121,7 @@ Daiki:
 
 ### 3. Sprint Reflection
 
-- Team Velocity: 18
+- Team Velocity: 26
 
 **How to Increase Team Velocity For Next Sprint:**
 1. Organize code into respective folders for neater, legible code.
