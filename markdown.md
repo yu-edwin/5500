@@ -52,7 +52,7 @@ Doppl lacks a wardrobe feature since they only have suggested outfits that are p
 - [Item 3 - DONE] MUST - Inventory should have clothing categories (shoes, tops, bottoms ...) (Daiki)
 - [Item 4 - DONE ] MUST - MUST - Uploaded clothing items can be turned into item descriptions with AI (Edwin)
 - [Item 5 - DONE ] MUST - Wardrobe allows for equipping one of each clothing type (Edwin)
-- [Item 6 - In-Progress ] SHOULD - Save multiple outfit combinations (Daiki)
+- [Item 6 - DONE] SHOULD - Save multiple outfit combinations (Daiki)
 
 ##  Evidence of SCRUM Process
 
@@ -102,15 +102,17 @@ Team Work distrbution:
 Justin:
 1. Created a backend using node/espress.js
 2. Hosted backend on Render and connected to MongoDB database.
-3. Created Schema for clothing item and users
+3. Created Schema for clothing item and users and outfits
 4. Setup/Helped with GET/POST/PUT/DELETE requests for clothing item
-5. Set up GET request for users (Only get for now since we only have 1 test user)
+5. Set up GET/POST request for outfits
+6. Set up GET request for users (Only get for now since we only have 1 test user)
 
 Edwin:
 1. Set up xcode frontend
 2. Created Gemini API for clothing item description
 3. Set up camera/Allow for upload
 4. Allows users to equip selected clothing item and initialized clothing equipped on start-up.
+5. Selectable clothing item for outfits. Can have a total of 3 outfits thus far.
 
 Daiki:
 1. Connected CRUD requests from backend to frontend
