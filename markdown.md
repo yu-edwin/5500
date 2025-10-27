@@ -52,7 +52,7 @@ Doppl lacks a wardrobe feature since they only have suggested outfits that are p
 - [Item 3 - DONE] MUST - Inventory should have clothing categories (shoes, tops, bottoms ...) (Daiki)
 - [Item 4 - DONE ] MUST - MUST - Uploaded clothing items can be turned into item descriptions with AI (Edwin)
 - [Item 5 - DONE ] MUST - Wardrobe allows for equipping one of each clothing type (Edwin)
-- [Item 6 - DONE] SHOULD - Save multiple outfit combinations (Daiki)
+- [Item 6 - DONE] SHOULD - Save multiple outfit combinations (Edwin)
 
 ##  Evidence of SCRUM Process
 
