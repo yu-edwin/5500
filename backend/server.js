@@ -8,6 +8,7 @@ import connectToDB from "./config/mongoDBConnection.js";
 import seedData from "./config/seedData.js";
 import wardrobeRoutes from "./routes/wardrobeRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import outfitRoutes from "./routes/outfitRoutes.js";
 
 const app = express();
 app.use(cors());
@@ -23,6 +24,7 @@ const startServer = async () => {
     await connectToDB();
     await seedData();
 
+    app.use('/api/outfit', outfitRoutes);
     app.use('/api/user', userRoutes);
     app.use('/api/wardrobe', wardrobeRoutes);
     console.log("Routes are supported")
