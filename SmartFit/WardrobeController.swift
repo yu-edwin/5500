@@ -5,8 +5,17 @@ import SwiftUI
 class WardrobeController: ObservableObject {
     @Published var model = WardrobeModel()
     @Published var selectedCategory = "all"
+    @Published var selectedOutfit = 1 {  // 1, 2, or 3
+        didSet {
+            saveOutfits()
+        }
+    }
     @Published var showAddSheet = false
-    @Published var equippedOutfit: [String: String] = [:]  // category -> itemId
+    @Published var outfits: [Int: [String: String]] = [1: [:], 2: [:], 3: [:]]  // outfitNumber -> (category -> itemId)
+
+    var currentEquippedOutfit: [String: String] {
+        outfits[selectedOutfit] ?? [:]
+    }
 
     // Add item form state
     @Published var formName = ""
@@ -31,24 +40,42 @@ class WardrobeController: ObservableObject {
         Task {
             do {
                 try await model.fetchItems()
-                initializeEquippedOutfit()
+                // Try to load saved outfits first
+                if !loadOutfits() {
+                    // If no saved data, initialize with empty outfits
+                    DispatchQueue.main.async {
+                        self.outfits = [1: [:], 2: [:], 3: [:]]
+                    }
+                }
             } catch {
                 print("Error loading items: \(error)")
             }
         }
     }
 
-    func initializeEquippedOutfit() {
-        var outfit: [String: String] = [:]
-        for category in formCategories {
-            if let firstItem = model.items.first(where: { $0.category == category }) {
-                outfit[category] = firstItem.id
+    func saveOutfits() {
+        do {
+            let data = try JSONEncoder().encode(outfits)
+            UserDefaults.standard.set(data, forKey: "savedOutfits")
+        } catch {
+            print("Error saving outfits: \(error)")
+        }
+    }
+
+    func loadOutfits() -> Bool {
+        if let data = UserDefaults.standard.data(forKey: "savedOutfits") {
+            do {
+                let decoded = try JSONDecoder().decode([Int: [String: String]].self, from: data)
+                DispatchQueue.main.async {
+                    self.outfits = decoded
+                }
+                return true
+            } catch {
+                print("Error loading outfits: \(error)")
+                return false
             }
         }
-        
-        DispatchQueue.main.async {
-            self.equippedOutfit = outfit
-        }
+        return false
     }
 
     func submitAddItem() {
@@ -81,10 +108,11 @@ class WardrobeController: ObservableObject {
     }
 
     func equipItem(itemId: String, category: String) {
-        print("Equipping item \(itemId) in category \(category)")
-        var newOutfit = equippedOutfit
-        newOutfit[category] = itemId
-        equippedOutfit = newOutfit
-        print("Updated outfit: \(equippedOutfit)")
+        print("Equipping item \(itemId) in category \(category) to outfit \(selectedOutfit)")
+        var updatedOutfits = outfits
+        updatedOutfits[selectedOutfit]?[category] = itemId
+        outfits = updatedOutfits
+        print("Updated outfit \(selectedOutfit): \(currentEquippedOutfit)")
+        saveOutfits()
     }
 }
