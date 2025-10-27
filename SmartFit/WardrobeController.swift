@@ -40,32 +40,15 @@ class WardrobeController: ObservableObject {
         Task {
             do {
                 try await model.fetchItems()
-                initializeEquippedOutfit()
-                loadOutfits()
+                // Try to load saved outfits first
+                if !loadOutfits() {
+                    // If no saved data, initialize with empty outfits
+                    DispatchQueue.main.async {
+                        self.outfits = [1: [:], 2: [:], 3: [:]]
+                    }
+                }
             } catch {
                 print("Error loading items: \(error)")
-            }
-        }
-    }
-
-    func initializeEquippedOutfit() {
-        var defaultOutfit: [String: String] = [:]
-        for category in formCategories {
-            if let firstItem = model.items.first(where: { $0.category == category }) {
-                defaultOutfit[category] = firstItem.id
-            }
-        }
-
-        DispatchQueue.main.async {
-            // Only initialize empty outfits
-            if self.outfits[1]?.isEmpty ?? true {
-                self.outfits[1] = defaultOutfit
-            }
-            if self.outfits[2]?.isEmpty ?? true {
-                self.outfits[2] = defaultOutfit
-            }
-            if self.outfits[3]?.isEmpty ?? true {
-                self.outfits[3] = defaultOutfit
             }
         }
     }
@@ -79,17 +62,20 @@ class WardrobeController: ObservableObject {
         }
     }
 
-    func loadOutfits() {
+    func loadOutfits() -> Bool {
         if let data = UserDefaults.standard.data(forKey: "savedOutfits") {
             do {
                 let decoded = try JSONDecoder().decode([Int: [String: String]].self, from: data)
                 DispatchQueue.main.async {
                     self.outfits = decoded
                 }
+                return true
             } catch {
                 print("Error loading outfits: \(error)")
+                return false
             }
         }
+        return false
     }
 
     func submitAddItem() {
