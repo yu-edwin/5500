@@ -1,6 +1,6 @@
 # Sprint 1 Report - Smartfit
 
-##  MVP Definition
+##  MVP
 
 ###  Description
 
@@ -16,7 +16,7 @@ Our first MVP for sprint 1 will ensure that our customer/client will have a func
 Users would be able to mix and match multiple items to form a single outfit instead of uploading ONLY the full outfit and checking to see if they like the appearance generated. This gives the user a greater variety of outfits they can choose since they can experiment with new fits. 
 
 
-Targeted User Stories:
+**Targeted User Stories:**
 As: Mathhew, a messy undergraduate student,
 I want to: better organize the clothes that I have
 So that: I can clearly see what options I have virtually instead of searching for them aimlessly in my closet.   
@@ -29,7 +29,7 @@ As: John Smith, a fashion designer
 I want: To explore various clothing combinations quickly
 So that: I can create mood boards and satisfy my clients
 
-User Problems being solved:
+**User Problems being solved:**
 
 1. Users have difficulty in viewing all the clothing options they have for their fit of the day
 - A virtual wardrobe that displays ALL clothing items stored
@@ -51,7 +51,7 @@ Doppl lacks a wardrobe feature since they only have suggested outfits that are p
 - [Item 2 - DONE] MUST - Working backend inventory system for wardrobe (Justin)
 - [Item 3 - DONE] MUST - Inventory should have clothing categories (shoes, tops, bottoms ...) (Daiki)
 - [Item 4 - DONE ] MUST - MUST - Uploaded clothing items can be turned into item descriptions with AI (Edwin)
-- [Item 5 - In-Progress ] MUST - Wardrobe allows for equipping one of each clothing type (Edwin)
+- [Item 5 - DONE ] MUST - Wardrobe allows for equipping one of each clothing type (Edwin)
 - [Item 6 - In-Progress ] SHOULD - Save multiple outfit combinations (Daiki)
 
 ##  Evidence of SCRUM Process
@@ -110,6 +110,7 @@ Edwin:
 1. Set up xcode frontend
 2. Created Gemini API for clothing item description
 3. Set up camera/Allow for upload
+4. Allows users to equip selected clothing item and initialized clothing equipped on start-up.
 
 Daiki:
 1. Connected CRUD requests from backend to frontend
@@ -137,4 +138,4 @@ Daiki:
 
 ### MVP Deployment
 
-**DeployedURL:** []
+**Deployed URL:** [https://appetize.io/app/b_olij744qrk4ga7v5bqgwhznhou](https://appetize.io/app/b_olij744qrk4ga7v5bqgwhznhou)
