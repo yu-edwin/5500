@@ -6,6 +6,7 @@ class WardrobeController: ObservableObject {
     @Published var model = WardrobeModel()
     @Published var selectedCategory = "all"
     @Published var showAddSheet = false
+    @Published var equippedOutfit: [String: String] = [:]  // category -> itemId
 
     // Add item form state
     @Published var formName = ""
@@ -30,9 +31,23 @@ class WardrobeController: ObservableObject {
         Task {
             do {
                 try await model.fetchItems()
+                initializeEquippedOutfit()
             } catch {
                 print("Error loading items: \(error)")
             }
+        }
+    }
+
+    func initializeEquippedOutfit() {
+        var outfit: [String: String] = [:]
+        for category in formCategories {
+            if let firstItem = model.items.first(where: { $0.category == category }) {
+                outfit[category] = firstItem.id
+            }
+        }
+        
+        DispatchQueue.main.async {
+            self.equippedOutfit = outfit
         }
     }
 
@@ -63,5 +78,13 @@ class WardrobeController: ObservableObject {
         formImageData = nil
         formIsLoading = false
         formErrorMessage = nil
+    }
+
+    func equipItem(itemId: String, category: String) {
+        print("Equipping item \(itemId) in category \(category)")
+        var newOutfit = equippedOutfit
+        newOutfit[category] = itemId
+        equippedOutfit = newOutfit
+        print("Updated outfit: \(equippedOutfit)")
     }
 }
