@@ -44,7 +44,7 @@ struct WardrobeView: View {
                     ScrollView {
                         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
                             ForEach(controller.filteredItems) { item in
-                                ItemCard(item: item)
+                                ItemCard(item: item, controller: controller)
                             }
                         }
                         .padding()
@@ -71,29 +71,45 @@ struct WardrobeView: View {
 
 struct ItemCard: View {
     let item: WardrobeItem
+    let controller: WardrobeController
+    @State private var isChecked = false
 
     var body: some View {
         VStack(alignment: .leading) {
-            if let imageData = item.image_data,
-               let base64 = imageData.components(separatedBy: ",").last,
-               let data = Data(base64Encoded: base64),
-               let uiImage = UIImage(data: data) {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 150)
-                    .clipped()
-                    .cornerRadius(8)
-            } else {
-                Rectangle()
-                    .fill(Color.gray.opacity(0.2))
-                    .frame(height: 150)
-                    .cornerRadius(8)
-                    .overlay(
-                        Image(systemName: "tshirt")
-                            .font(.system(size: 40))
-                            .foregroundColor(.gray)
-                    )
+            ZStack(alignment: .bottomTrailing) {
+                if let imageData = item.image_data,
+                   let base64 = imageData.components(separatedBy: ",").last,
+                   let data = Data(base64Encoded: base64),
+                   let uiImage = UIImage(data: data) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 150)
+                        .clipped()
+                        .cornerRadius(8)
+                } else {
+                    Rectangle()
+                        .fill(Color.gray.opacity(0.2))
+                        .frame(height: 150)
+                        .cornerRadius(8)
+                        .overlay(
+                            Image(systemName: "tshirt")
+                                .font(.system(size: 40))
+                                .foregroundColor(.gray)
+                        )
+                }
+
+                if isChecked {
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.system(size: 32))
+                        .foregroundColor(.green)
+                        .background(
+                            Circle()
+                                .fill(Color.white)
+                                .frame(width: 40, height: 40)
+                        )
+                        .padding(8)
+                }
             }
 
             Text(item.name)
@@ -107,9 +123,12 @@ struct ItemCard: View {
             }
         }
         .padding(8)
-        .background(Color.white)
+        .background(Color.black)
         .cornerRadius(12)
         .shadow(radius: 2)
+        .onTapGesture {
+            isChecked.toggle()
+        }
     }
 }
 
