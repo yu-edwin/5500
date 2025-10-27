@@ -100,7 +100,7 @@ struct ItemCard: View {
     @ObservedObject var controller: WardrobeController
 
     var isEquipped: Bool {
-        controller.equippedOutfit[item.category] == item.id
+        controller.currentEquippedOutfit[item.category] == item.id
     }
 
     var body: some View {
