@@ -22,9 +22,3 @@ Doppl lacks a wardrobe feature since they only have suggested outfits that are p
 
 ### Github Project
 **URL:** [Project](https://github.com/users/yu-edwin/projects/1)
-
-### Documentation
-
-[Express Routing](https://expressjs.com/en/guide/routing.html)
-[Mongodb Documents](https://www.mongodb.com/docs/get-started/?language=nodejs)
-[Mongoose Documents](https://mongoosejs.com/docs/)
