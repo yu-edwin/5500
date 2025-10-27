@@ -71,8 +71,11 @@ struct WardrobeView: View {
 
 struct ItemCard: View {
     let item: WardrobeItem
-    let controller: WardrobeController
-    @State private var isChecked = false
+    @ObservedObject var controller: WardrobeController
+
+    var isEquipped: Bool {
+        controller.equippedOutfit[item.category] == item.id
+    }
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -99,7 +102,7 @@ struct ItemCard: View {
                         )
                 }
 
-                if isChecked {
+                if isEquipped {
                     Image(systemName: "checkmark.circle.fill")
                         .font(.system(size: 32))
                         .foregroundColor(.green)
@@ -127,7 +130,7 @@ struct ItemCard: View {
         .cornerRadius(12)
         .shadow(radius: 2)
         .onTapGesture {
-            isChecked.toggle()
+            controller.equipItem(itemId: item.id, category: item.category)
         }
     }
 }
