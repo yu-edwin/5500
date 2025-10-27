@@ -53,11 +53,37 @@ struct WardrobeView: View {
             }
             .navigationTitle("Wardrobe")
             .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    HStack(spacing: 8) {
+                        ForEach(1...3, id: \.self) { outfitNumber in
+                            ZStack {
+                                controller.selectedOutfit == outfitNumber ? Color.blue : Color.gray.opacity(0.2)
+
+                                Text(String(outfitNumber))
+                                    .foregroundColor(controller.selectedOutfit == outfitNumber ? .white : .black)
+                                    .font(.system(size: 14, weight: .semibold))
+                            }
+                            .frame(width: 40, height: 40)
+                            .cornerRadius(6)
+                            .onTapGesture {
+                                controller.selectedOutfit = outfitNumber
+                            }
+                        }
+                    }
+                }
+            }
+            .overlay(alignment: .bottomTrailing) {
                 Button {
                     controller.showAddSheet = true
                 } label: {
                     Image(systemName: "plus")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.white)
+                        .frame(width: 56, height: 56)
+                        .background(Color.blue)
+                        .clipShape(Circle())
                 }
+                .padding(20)
             }
             .sheet(isPresented: $controller.showAddSheet) {
                 AddItemSheet(controller: controller)

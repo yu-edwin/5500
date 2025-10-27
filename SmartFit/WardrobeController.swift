@@ -5,6 +5,7 @@ import SwiftUI
 class WardrobeController: ObservableObject {
     @Published var model = WardrobeModel()
     @Published var selectedCategory = "all"
+    @Published var selectedOutfit = 1  // 1, 2, or 3
     @Published var showAddSheet = false
     @Published var equippedOutfit: [String: String] = [:]  // category -> itemId
 
