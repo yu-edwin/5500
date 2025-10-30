@@ -12,7 +12,6 @@ import SwiftUI
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var authController: AuthenticationController?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -21,11 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userID = UserIDManager.shared.userID
         print("User ID: \(userID)")
 
-        // Initialize authentication controller
-        authController = AuthenticationController()
-
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView(authController: authController!)
+        let contentView = ContentView()
 
         // Use a UIHostingController as window root view controller.
         let window = UIWindow(frame: UIScreen.main.bounds)
