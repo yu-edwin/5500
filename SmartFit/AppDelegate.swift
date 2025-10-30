@@ -12,18 +12,33 @@ import SwiftUI
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var authController: AuthenticationController?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+        // Generate or retrieve persistent user ID
+        let userID = UserIDManager.shared.userID
+        print("User ID: \(userID)")
+
+        // Initialize authentication controller
+        authController = AuthenticationController()
+
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        let contentView = ContentView(authController: authController!)
 
         // Use a UIHostingController as window root view controller.
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = UIHostingController(rootView: contentView)
         self.window = window
         window.makeKeyAndVisible()
+        return true
+    }
+
+    // Handle URL schemes for Google Sign-In
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        // This will handle Google Sign-In callbacks
+        // Add Google Sign-In SDK handling here when configured
         return true
     }
 
