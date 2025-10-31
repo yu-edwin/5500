@@ -2,7 +2,7 @@ name: iOS Tests
 
 on:
   push:
-    branches: [ main, multiple_equip ]
+    branches: [ '*' ]
   pull_request:
     branches: [ main ]
 
